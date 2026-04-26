@@ -77,6 +77,9 @@ p {
   width: min(830px, 100%);
 }
 
+/* =========================================================
+   EFFECT 2 — Navbar scroll shrink
+   ========================================================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -90,6 +93,14 @@ p {
   background: rgba(240, 232, 218, 0.72);
   backdrop-filter: blur(11px);
   border-bottom: 1px solid rgba(103, 67, 54, 0.15);
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar--scrolled {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  background: rgba(240, 232, 218, 0.96);
+  box-shadow: 0 4px 20px rgba(80, 40, 25, 0.14);
 }
 
 .brand {
@@ -153,10 +164,33 @@ p {
   border-top: 1px solid rgba(240, 232, 218, 0.25);
 }
 
+/* =========================================================
+   EFFECT 10 — Active nav indicator
+   ========================================================= */
 .nav-links a {
   display: block;
   padding: 0.7rem 0.8rem;
   border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0.8rem;
+  right: 0.8rem;
+  height: 2px;
+  background: var(--color-accent2);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  transform-origin: left;
+}
+
+.nav-links a.nav-active::after,
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .nav-links a:hover,
@@ -170,19 +204,34 @@ p {
   pointer-events: auto;
 }
 
+/* =========================================================
+   EFFECT 7 — Promo strip marquee
+   ========================================================= */
 .promo-strip {
   margin-top: 73px;
   background: linear-gradient(90deg, var(--color-accent2), var(--color-accent1));
   color: var(--color-secondary);
   border-bottom: 1px solid rgba(80, 40, 25, 0.2);
+  overflow: hidden;
 }
 
 .promo-strip p {
   margin: 0;
-  padding: 0.65rem 1rem;
-  text-align: center;
+  padding: 0.65rem 0;
   font-size: 0.92rem;
   font-weight: 700;
+  white-space: nowrap;
+  display: inline-block;
+  animation: marquee 28s linear infinite;
+}
+
+.promo-strip p:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
 }
 
 .promo-strip__label {
@@ -200,6 +249,33 @@ p {
   text-decoration: underline;
 }
 
+/* =========================================================
+   EFFECT 4 — Hero text entrance (staggered fade+slide)
+   ========================================================= */
+.hero__content h1 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroFadeUp 0.85s cubic-bezier(0.22, 0.9, 0.36, 1) 0.2s forwards;
+}
+
+.hero__content > p {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroFadeUp 0.75s cubic-bezier(0.22, 0.9, 0.36, 1) 0.55s forwards;
+  margin-bottom: 1.6rem;
+  font-size: clamp(1.08rem, 3.8vw, 1.45rem);
+}
+
+.hero__actions {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 0.65s cubic-bezier(0.22, 0.9, 0.36, 1) 0.85s forwards;
+}
+
+@keyframes heroFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -214,6 +290,8 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 .hero__overlay {
@@ -319,6 +397,9 @@ p {
   color: #c13584;
 }
 
+/* =========================================================
+   EFFECT 3 — Product & space image zoom on hover
+   ========================================================= */
 .product-card {
   position: relative;
   background: #fff;
@@ -326,12 +407,44 @@ p {
   overflow: hidden;
   border: 1px solid rgba(103, 67, 54, 0.16);
   box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.products-grid .product-card:nth-child(1) { animation-delay: 0s; }
+.products-grid .product-card:nth-child(2) { animation-delay: 0.4s; }
+.products-grid .product-card:nth-child(3) { animation-delay: 0.8s; }
+.products-grid .product-card:nth-child(4) { animation-delay: 1.2s; }
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(80, 40, 25, 0.2);
 }
 
 .product-card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.36, 1);
+}
+
+.product-card:hover img {
+  transform: scale(1.07);
+}
+
+.space-grid img {
+  width: 100%;
+  min-height: 230px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.36, 1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.space-grid img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 18px 40px rgba(80, 40, 25, 0.2);
 }
 
 .product-card h3,
@@ -391,6 +504,10 @@ p {
   gap: 1rem;
 }
 
+/* =========================================================
+   EFFECT 6 — Award card shimmer on hover (one-directional,
+   per-medal color: bronze / silver / rose-gold special)
+   ========================================================= */
 .award-card {
   display: flex;
   align-items: flex-start;
@@ -400,6 +517,82 @@ p {
   padding: 1.2rem;
   border: 1px solid rgba(160, 133, 82, 0.25);
   box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: float 5s ease-in-out infinite;
+}
+
+.awards-grid .award-card:nth-child(1) { animation-delay: 0.2s; }
+.awards-grid .award-card:nth-child(2) { animation-delay: 0.6s; }
+.awards-grid .award-card:nth-child(3) { animation-delay: 1s; }
+.awards-grid .award-card:nth-child(4) { animation-delay: 1.4s; }
+
+/* shared shimmer layer — no color here, no transition */
+.award-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* per-medal shimmer colors */
+.award-card--bronze::before {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(205, 127, 50, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.award-card--silver::before {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(192, 192, 210, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+/* 4th place: warm rose-gold, unique to the brand palette */
+.award-card--special::before {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(251, 207, 194, 0.75) 50%,
+    transparent 100%
+  );
+}
+
+/* hover-IN only: animation fires once, no reverse on mouse-out */
+.award-card:hover::before {
+  animation: shimmerSlide 0.55s ease forwards;
+}
+
+@keyframes shimmerSlide {
+  from { left: -75%; }
+  to   { left: 130%; }
+}
+
+.award-card:hover {
+  transform: translateY(-3px);
+}
+
+.award-card--bronze:hover {
+  box-shadow: 0 14px 36px rgba(205, 127, 50, 0.22);
+}
+
+.award-card--silver:hover {
+  box-shadow: 0 14px 36px rgba(160, 160, 180, 0.22);
+}
+
+.award-card--special:hover {
+  box-shadow: 0 14px 36px rgba(251, 207, 194, 0.35);
 }
 
 .award-card--bronze {
@@ -411,7 +604,7 @@ p {
 }
 
 .award-card--special {
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--color-accent1);
 }
 
 .award-card__medal {
@@ -446,6 +639,20 @@ p {
   margin: 0;
   font-size: 0.9rem;
   color: var(--color-brown);
+}
+
+.award-card__source {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.award-card__source:hover,
+.award-card__source:focus-visible {
+  color: var(--color-secondary);
 }
 
 .section--about {
@@ -614,6 +821,9 @@ p {
   color: rgba(240, 232, 218, 0.84);
 }
 
+/* =========================================================
+   EFFECT 9 — WhatsApp floating button pulse ring
+   ========================================================= */
 .whatsapp-float {
   position: fixed;
   right: 1rem;
@@ -631,6 +841,31 @@ p {
   transition: transform 0.2s ease;
 }
 
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  opacity: 0.5;
+  animation: waPulse 2.2s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes waPulse {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* =========================================================
+   EFFECT 11 — Floating/bobbing animation for cards
+   ========================================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+
 .whatsapp-float:hover,
 .whatsapp-float:focus-visible {
   transform: translateY(-3px) scale(1.03);
@@ -640,6 +875,33 @@ p {
   width: 30px;
   height: 30px;
 }
+
+/* =========================================================
+   EFFECT 1 — Scroll-reveal (JS adds .revealed)
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 0.9, 0.36, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger children inside a reveal container */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 0.9, 0.36, 1);
+}
+
+.reveal-group.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-group.revealed > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-group.revealed > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-group.revealed > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-group.revealed > * { opacity: 1; transform: none; }
 
 @media (min-width: 768px) {
   .section {
@@ -652,6 +914,7 @@ p {
 
   .promo-strip {
     margin-top: 77px;
+    overflow: hidden;
   }
 
   .promo-strip p {
@@ -679,6 +942,12 @@ p {
 
   .nav-links li + li {
     border-top: 0;
+  }
+
+  .nav-links a::after {
+    bottom: 3px;
+    left: 0.7rem;
+    right: 0.7rem;
   }
 
   .nav-links a {

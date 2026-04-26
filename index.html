@@ -16,6 +16,8 @@
     />
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Lenis smooth scroll library -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.37/dist/lenis.min.js"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -98,8 +100,8 @@
     <main>
       <section class="section section--platforms" aria-labelledby="plataformas-title">
         <div class="container">
-          <h2 id="plataformas-title">Plataformas</h2>
-          <div class="platforms-grid">
+          <h2 id="plataformas-title" class="reveal">Plataformas</h2>
+          <div class="platforms-grid reveal-group">
             <a
               href="https://chocaramvd.ambit.la"
               target="_blank"
@@ -145,18 +147,9 @@
 
       <section class="section section--awards" id="premios" aria-labelledby="premios-title">
         <div class="container">
-          <h2 id="premios-title">Premios Internacionales</h2>
-          <p class="awards-intro">Nuestros productos han sido reconocidos en competencias internacionales por su sabor, textura y calidad.</p>
-          <div class="awards-grid">
-
-            <article class="award-card award-card--bronze">
-              <div class="award-card__medal" aria-label="Medalla de bronce">🥉</div>
-              <div class="award-card__body">
-                <p class="award-card__competition">Campeonato Mundial del Alfajor 2023</p>
-                <h3 class="award-card__title">Mejor Textura</h3>
-                <p class="award-card__detail">Medalla de Bronce · Alfajor <em>Alfabrownie</em></p>
-              </div>
-            </article>
+          <h2 id="premios-title" class="reveal">Premios Internacionales</h2>
+          <p class="awards-intro reveal">Nuestros productos han sido reconocidos en competencias internacionales por su sabor, textura y calidad.</p>
+          <div class="awards-grid reveal-group">
 
             <article class="award-card award-card--silver">
               <div class="award-card__medal" aria-label="Segunda posición">🥈</div>
@@ -176,12 +169,35 @@
               </div>
             </article>
 
+            <article class="award-card award-card--bronze">
+              <div class="award-card__medal" aria-label="Medalla de bronce">🥉</div>
+              <div class="award-card__body">
+                <p class="award-card__competition">Campeonato Mundial del Alfajor 2023</p>
+                <h3 class="award-card__title">Mejor Textura</h3>
+                <p class="award-card__detail">Medalla de Bronce · Alfajor <em>Alfabrownie</em></p>
+                <a
+                  href="https://www.elpais.com.uy/informacion/sociedad/uno-a-uno-estos-fueron-los-emprendimientos-uruguayos-premiados-en-el-campeonato-mundial-del-alfajor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="award-card__source"
+                  >Fuente externa: El País</a
+                >
+              </div>
+            </article>
+
             <article class="award-card award-card--special">
               <div class="award-card__medal" aria-label="Cuarto lugar">🏅</div>
               <div class="award-card__body">
                 <p class="award-card__competition">Feria Internacional del Alfajor 2025</p>
                 <h3 class="award-card__title">4.° Mejor en Uruguay</h3>
                 <p class="award-card__detail">Alfajor de Nutella · Selección nacional</p>
+                <a
+                  href="https://www.elpais.com.uy/bienestar/eliminatorias-de-sabor-ocho-alfajores-uruguayos-elegidos-para-ir-al-mundial-en-argentina"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="award-card__source"
+                  >Fuente externa: El País</a
+                >
               </div>
             </article>
 
@@ -191,8 +207,8 @@
 
       <section class="section" id="productos" aria-labelledby="productos-title">
         <div class="container">
-          <h2 id="productos-title">Productos</h2>
-          <div class="products-grid">
+          <h2 id="productos-title" class="reveal">Productos</h2>
+          <div class="products-grid reveal-group">
             <article class="product-card">
               <span class="badge">Sin TACC</span>
               <img
@@ -252,8 +268,8 @@
 
       <section class="section section--space" id="local" aria-labelledby="local-title">
         <div class="container">
-          <h2 id="local-title">Nuestro Local</h2>
-          <div class="space-grid">
+          <h2 id="local-title" class="reveal">Nuestro Local</h2>
+          <div class="space-grid reveal-group">
             <img
               src="assets/space/espacio1.jpg"
               alt="Interior del local ChocAra con mesas"
@@ -274,7 +290,7 @@
       </section>
 
       <section class="section section--about" id="nosotros" aria-labelledby="nosotros-title">
-        <div class="container container--narrow">
+        <div class="container container--narrow reveal">
           <h2 id="nosotros-title">Acerca de Nosotros</h2>
 
           <h3>Sabores que Unen</h3>
@@ -324,8 +340,8 @@
 
       <section class="section section--location" aria-labelledby="llegar-title">
         <div class="container">
-          <h2 id="llegar-title">Cómo Llegar</h2>
-          <div class="location-layout">
+          <h2 id="llegar-title" class="reveal">Cómo Llegar</h2>
+          <div class="location-layout reveal">
             <div class="map-wrapper">
               <iframe
                 title="Ubicación de ChocAra en Montevideo"
@@ -454,7 +470,7 @@
           <li><a href="#contacto">Contacto</a></li>
         </ul>
 
-        <p class="footer__copy">© 2025 ChocAra. Todos los derechos reservados.</p>
+        <p class="footer__copy">© 2026 ChocAra. Todos los derechos reservados.</p>
       </div>
     </footer>
 
