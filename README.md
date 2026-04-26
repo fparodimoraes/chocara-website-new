@@ -1,6 +1,29 @@
-# ChocAra - Sitio Web Estático
+# ChocAra - Sitio Web
 
-Sitio web de una sola página para ChocAra, desarrollado con HTML, CSS y JavaScript puro.
+Landing page estática de ChocAra (restaurante y pastelería sin TACC), construida con HTML, CSS y JavaScript vanilla.
+
+## Stack
+
+- HTML5 semántico
+- CSS3 (animaciones, layout responsive, diseño visual)
+- JavaScript vanilla
+- Lenis (vía CDN) para smooth scroll
+
+No usa npm, bundlers ni build step.
+
+## Estado actual del sitio
+
+Incluye:
+
+- Hero con logo SVG blanco, overlay, CTA principal y CTA secundario.
+- Navbar fija con estado shrink en scroll y menú responsive.
+- Promo strip de novedades persistente bajo la navbar.
+- Quick facts encima del contenido principal (dirección, horarios, WhatsApp).
+- Sección Como Queres Pedir con accesos a Tienda, Viandas e Instagram.
+- Sección Productos con fotos reales optimizadas.
+- Sección Premios con medallas reales (Golden Chef, Mundial del Alfajor, Feria Internacional).
+- Secciones Nosotros, Local/Contacto y medios de pago.
+- SEO técnico base (canonical, Open Graph, Twitter Card y JSON-LD tipo Restaurant).
 
 ## Estructura del proyecto
 
@@ -9,50 +32,66 @@ chocara-website/
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
-   ├── logo-name-only.png
-   ├── logo-leaves-only.png
-   ├── chocara-pointer.png
-    ├── hero.jpg
-    ├── products/
-    │   ├── alfajores.jpg
-    │   ├── postres.jpg
-   │   ├── almuerzo.jpg
-   │   └── congelados.jpg
-    └── space/
-        ├── espacio1.jpg
-        ├── espacio2.jpg
-        └── espacio3.jpg
+├── README.md
+├── chocara-logo-white.svg
+├── assets/
+│   ├── hero.jpg
+│   ├── favicon-sello.png
+│   ├── chocara-pointer.png
+│   ├── products/
+│   │   ├── alfajores.jpg
+│   │   ├── postres.jpg
+│   │   ├── almuerzo.jpg
+│   │   └── congelados.jpg
+│   ├── awards/
+│   │   ├── alfabrownie.jpg
+│   │   ├── golden-chef-dulce.png
+│   │   ├── golden-chef-restaurant.png
+│   │   ├── mejor-textura-bronce.png
+│   │   └── feria-internacional-2025.png
+│   ├── gallery/
+│   ├── space/
+│   └── logos...
+└── images/
+      ├── alfajores/
+      ├── desserts/
+      └── dishes/
 ```
 
-## Reemplazo de imágenes placeholder
+Notas:
 
-1. Mantené los mismos nombres de archivo indicados en `assets/`.
-2. Reemplazá cada imagen por tu archivo final sin cambiar rutas ni nombres.
-3. Recomendación de tamaños:
-   - `hero.jpg`: mínimo 1920x1080.
-   - `products/*.jpg`: alrededor de 1200x800.
-   - `space/*.jpg`: alrededor de 1400x1000.
-   - `logo-name-only.png`: alrededor de 760x200, fondo transparente.
-   - `logo-leaves-only.png`: alrededor de 128x128 para favicon.
-   - `chocara-pointer.png`: 32x32 para cursor personalizado.
+- assets/ contiene archivos optimizados para producción web.
+- images/ contiene material fuente de fotos (insumo para futuras optimizaciones).
+- En la raíz también hay algunos assets originales importados durante iteraciones de diseño.
 
 ## Vista previa local
 
-1. Abrí `index.html` directamente en el navegador.
-2. Opcional: usá una extensión de servidor local en VS Code para recarga automática.
+1. Abrí index.html en el navegador.
+2. Opcional: usá Live Server en VS Code para recarga automática.
 
 ## Deploy en GitHub Pages
 
-1. Creá un repositorio en GitHub y subí estos archivos a la rama principal (`main`).
-2. En GitHub, abrí `Settings` > `Pages`.
-3. En `Build and deployment`, seleccioná:
-   - `Source`: `Deploy from a branch`
-   - `Branch`: `main` y carpeta `/ (root)`
-4. Guardá los cambios.
-5. Esperá a que GitHub publique el sitio y abrí la URL generada por Pages.
+1. Subí el contenido a la rama main.
+2. En GitHub: Settings > Pages.
+3. En Build and deployment:
+    - Source: Deploy from a branch
+    - Branch: main y carpeta /(root)
+4. Guardá y esperá la publicación.
 
-## Notas
+## Mantenimiento rápido
 
-- No requiere npm, build tools ni dependencias adicionales.
-- Compatible con hosting estático, incluyendo GitHub Pages.
+- Cambiar logo del hero:
+   - Editar el source SVG en el bloque picture dentro de index.html.
+- Cambiar novedad de la promo strip:
+   - Editar el texto y link en el bloque .promo-strip de index.html.
+- Cambiar productos o premios:
+   - Reemplazar imágenes en assets/products y assets/awards manteniendo nombres.
+- Revisar SEO:
+   - Validar canonical/OG/Twitter y el JSON-LD en head de index.html.
+
+## Recomendaciones de assets
+
+- Hero: 1920x1080 aproximado, JPG progresivo.
+- Productos: alrededor de 1200x800, compresión visualmente limpia.
+- Medallas: PNG con transparencia, entre 500px y 700px de lado.
+- Logo hero SVG: preferido cuando haya versión vectorial disponible.
