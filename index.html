@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ChocAra - Sabores Que Unen. Restaurante y pastelería 100% sin TACC con opciones para todos."
+    />
+    <title>ChocAra | Sabores Que Unen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header" id="inicio">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="#inicio" class="brand" aria-label="Ir al inicio">
+          <img
+            src="assets/logo.png"
+            alt="Logo de ChocAra"
+            loading="lazy"
+            class="brand__logo"
+          />
+          <span class="brand__text">ChocAra</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Abrir menú de navegación"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#local">Local</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="promo-strip" role="status" aria-label="Novedades de ChocAra">
+        <p>
+          <span class="promo-strip__label">Novedad:</span>
+          <span class="promo-strip__message">Menú semanal disponible para retiro y viandas.</span>
+          <a
+            href="https://instagram.com/chocara.saboresqueunen"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ver detalle</a
+          >
+        </p>
+      </div>
+
+      <section class="hero" aria-label="Sección principal de ChocAra">
+        <img
+          src="assets/hero.jpg"
+          alt="Vista principal del restaurante ChocAra"
+          loading="lazy"
+          class="hero__image"
+        />
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <h1>ChocAra</h1>
+          <p>Sabores Que Unen</p>
+          <div class="hero__actions">
+            <a
+              href="https://chocaramvd.ambit.la"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary"
+              >Ver Tienda</a
+            >
+            <a
+              href="https://chocara.enviandate.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--secondary"
+              >Pedir Viandas</a
+            >
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section section--platforms" aria-labelledby="plataformas-title">
+        <div class="container">
+          <h2 id="plataformas-title">Plataformas</h2>
+          <div class="platforms-grid">
+            <a
+              href="https://chocaramvd.ambit.la"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-card__emoji" aria-hidden="true">🛒</span>
+              <h3>Tienda Online</h3>
+              <p>Hacé tu pedido de productos ChocAra en minutos.</p>
+            </a>
+
+            <a
+              href="https://chocara.enviandate.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-card__emoji" aria-hidden="true">🍱</span>
+              <h3>Servicio de Viandas</h3>
+              <p>Comidas caseras y nutritivas para tu semana.</p>
+            </a>
+
+            <a
+              href="https://instagram.com/chocara.saboresqueunen"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-card__icon platform-card__icon--instagram" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm5.2-2.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <h3>Instagram</h3>
+              <p>Conocé novedades, platos y lanzamientos especiales.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--awards" id="premios" aria-labelledby="premios-title">
+        <div class="container">
+          <h2 id="premios-title">Premios Internacionales</h2>
+          <p class="awards-intro">Nuestros productos han sido reconocidos en competencias internacionales por su sabor, textura y calidad.</p>
+          <div class="awards-grid">
+
+            <article class="award-card award-card--bronze">
+              <div class="award-card__medal" aria-label="Medalla de bronce">🥉</div>
+              <div class="award-card__body">
+                <p class="award-card__competition">Campeonato Mundial del Alfajor 2023</p>
+                <h3 class="award-card__title">Mejor Textura</h3>
+                <p class="award-card__detail">Medalla de Bronce · Alfajor <em>Alfabrownie</em></p>
+              </div>
+            </article>
+
+            <article class="award-card award-card--silver">
+              <div class="award-card__medal" aria-label="Segunda posición">🥈</div>
+              <div class="award-card__body">
+                <p class="award-card__competition">Golden Chef 2025</p>
+                <h3 class="award-card__title">2.° Lugar · Panadería</h3>
+                <p class="award-card__detail">Competencia internacional de Bakery</p>
+              </div>
+            </article>
+
+            <article class="award-card award-card--bronze">
+              <div class="award-card__medal" aria-label="Tercera posición">🥉</div>
+              <div class="award-card__body">
+                <p class="award-card__competition">Golden Chef 2025</p>
+                <h3 class="award-card__title">3.° Lugar · Restaurante</h3>
+                <p class="award-card__detail">Competencia internacional de Restaurant</p>
+              </div>
+            </article>
+
+            <article class="award-card award-card--special">
+              <div class="award-card__medal" aria-label="Cuarto lugar">🏅</div>
+              <div class="award-card__body">
+                <p class="award-card__competition">Feria Internacional del Alfajor 2025</p>
+                <h3 class="award-card__title">4.° Mejor en Uruguay</h3>
+                <p class="award-card__detail">Alfajor de Nutella · Selección nacional</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="productos" aria-labelledby="productos-title">
+        <div class="container">
+          <h2 id="productos-title">Productos</h2>
+          <div class="products-grid">
+            <article class="product-card">
+              <span class="badge">Sin TACC</span>
+              <img
+                src="assets/products/alfajores.jpg"
+                alt="Alfajores artesanales de ChocAra"
+                loading="lazy"
+              />
+              <h3>Alfajores</h3>
+              <p>
+                Nuestros alfajores premiados, elaborados 100% sin TACC con ingredientes
+                seleccionados.
+              </p>
+            </article>
+
+            <article class="product-card">
+              <span class="badge">Sin TACC</span>
+              <img
+                src="assets/products/postres.jpg"
+                alt="Postres artesanales de ChocAra"
+                loading="lazy"
+              />
+              <h3>Postres</h3>
+              <p>
+                Tortas, tartas y dulces artesanales pensados para que todos puedan disfrutar.
+              </p>
+            </article>
+
+            <article class="product-card">
+              <span class="badge">Sin TACC</span>
+              <img
+                src="assets/products/almuerzo.jpg"
+                alt="Almuerzo casero de ChocAra"
+                loading="lazy"
+              />
+              <h3>Almuerzo</h3>
+              <p>
+                Menú del día casero y nutritivo, disponible de lunes a viernes.
+              </p>
+            </article>
+
+            <article class="product-card">
+              <span class="badge">Sin TACC</span>
+              <img
+                src="assets/products/congelados.jpg"
+                alt="Productos congelados artesanales de ChocAra: pastas, panes y milanesas"
+                loading="lazy"
+              />
+              <h3>Congelados</h3>
+              <p>
+                Pastas, panes y milanesas elaborados por nosotros. Llevate stock a casa y
+                disfrutá de ChocAra cuando quieras.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--space" id="local" aria-labelledby="local-title">
+        <div class="container">
+          <h2 id="local-title">Nuestro Local</h2>
+          <div class="space-grid">
+            <img
+              src="assets/space/espacio1.jpg"
+              alt="Interior del local ChocAra con mesas"
+              loading="lazy"
+            />
+            <img
+              src="assets/space/espacio2.jpg"
+              alt="Mostrador de pastelería del local ChocAra"
+              loading="lazy"
+            />
+            <img
+              src="assets/space/espacio3.jpg"
+              alt="Ambiente del restaurante ChocAra"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--about" id="nosotros" aria-labelledby="nosotros-title">
+        <div class="container container--narrow">
+          <h2 id="nosotros-title">Acerca de Nosotros</h2>
+
+          <h3>Sabores que Unen</h3>
+          <p>
+            En ChocAra, creemos que una dieta especial nunca debería ser una barrera para el
+            placer de compartir una buena mesa. Lo que comenzó como un camino personal de
+            descubrimiento, se ha transformado en un ecosistema gastronómico donde la seguridad
+            alimentaria, la innovación y la calidez casera se encuentran en cada plato.
+          </p>
+
+          <h3>Nuestra Historia</h3>
+          <p>
+            Todo nació de una necesidad y una pasión. Hace más de una década, Araceli, nuestra
+            fundadora y líder técnica, fue diagnosticada con celiaquía. Tras años de enfrentarse a
+            la dificultad de encontrar opciones que fueran tan seguras como deliciosas, la pandemia
+            de 2020 se convirtió en el escenario perfecto para la experimentación. Lo que empezó con
+            recetas adaptadas en casa, creció rápidamente gracias al amor por la cocina y el deseo de
+            devolverle a la comunidad celíaca el placer de disfrutar de esos clásicos que parecían
+            inalcanzables.
+          </p>
+
+          <h3>Nuestra Filosofía: Excelencia Operativa</h3>
+          <p>
+            Hoy, ChocAra ha evolucionado. Bajo la visión de un equipo multidisciplinario, hemos
+            pasado de ser una cocina artesanal a un restaurante y pastelería de vanguardia. Nos
+            mueve la Excelencia Operativa: aplicamos sistemas rigurosos de gestión y estandarización
+            para asegurar que cada bocado mantenga la misma calidad y seguridad que nos
+            caracteriza.
+          </p>
+
+          <h3>Compromiso con la Inclusión</h3>
+          <p>
+            Nuestra cocina es 100% libre de gluten, pero nuestra propuesta va mucho más allá. Hemos
+            diseñado un menú diverso que abraza a todos: opciones para diabéticos, intolerantes a la
+            lactosa, vegetarianos y veganos. En ChocAra, nadie se queda fuera de la mesa.
+          </p>
+
+          <h3>Nuestro Equipo</h3>
+          <p>
+            Detrás de cada café, cada torta y cada plato, hay una familia y un equipo comprometido.
+            Con Araceli liderando la innovación técnica y creativa, y un equipo de gestión enfocado
+            en la mejora continua de la hospitalidad, trabajamos día a día para que te sientas como
+            en casa, con la tranquilidad de que estás en las mejores manos.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--location" aria-labelledby="llegar-title">
+        <div class="container">
+          <h2 id="llegar-title">Cómo Llegar</h2>
+          <div class="location-layout">
+            <div class="map-wrapper">
+              <iframe
+                title="Ubicación de ChocAra en Montevideo"
+                src="https://www.google.com/maps?q=20%20de%20Setiembre%201520%2C%2011600%2C%20Montevideo%2C%20Uruguay&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="location-info">
+              <p>📍 20 de Setiembre 1520, 11600, Montevideo</p>
+              <p>Lun–Vie: 7:30 – 20:00</p>
+              <p>Sáb: 11:00 – 20:00</p>
+              <p>Dom: Cerrado</p>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=20+de+Setiembre+1520,+Montevideo,+Uruguay"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--location"
+                >Cómo llegar</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--payments" aria-labelledby="pagos-title">
+        <div class="container">
+          <h2 id="pagos-title">Pagos y Retiros</h2>
+          <div class="payments-grid">
+            <article class="payments-card">
+              <h3>Formas de Pago</h3>
+              <p>
+                Aceptamos efectivo, tarjetas de débito y crédito, y pagos digitales para que
+                puedas elegir la opción más cómoda.
+              </p>
+            </article>
+            <article class="payments-card">
+              <h3>Retiro en Local</h3>
+              <p>
+                Podés retirar tus pedidos en nuestro local en el horario de atención, con la
+                tranquilidad de una cocina 100% libre de gluten.
+              </p>
+            </article>
+            <article class="payments-card">
+              <h3>Pedidos Online</h3>
+              <p>
+                También podés comprar desde la Tienda Online o pedir viandas para la semana en
+                nuestras plataformas digitales.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto" aria-labelledby="contacto-title">
+        <div class="container container--narrow">
+          <h2 id="contacto-title">Contacto</h2>
+          <ul class="contact-list">
+            <li>📞 <a href="tel:+59895621971">+598 95 621 971</a></li>
+            <li>
+              <span class="icon-logo icon-logo--whatsapp" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M19.1 4.9A9.84 9.84 0 0 0 12.06 2C6.57 2 2.1 6.47 2.1 11.97c0 1.76.46 3.48 1.34 5L2 22l5.18-1.36a9.93 9.93 0 0 0 4.88 1.25h.01c5.49 0 9.96-4.47 9.96-9.96 0-2.66-1.03-5.16-2.93-7.03zM12.07 20.2h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.08.81.82-3-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.82 2.42a8.17 8.17 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.12-.16.25-.64.81-.78.97-.14.16-.28.19-.53.07-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.45-1.37-1.69-.14-.25-.02-.38.1-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.07-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.09 3.62.57.24 1.02.39 1.37.5.58.18 1.11.16 1.53.1.46-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              WhatsApp:
+              <a
+                href="https://wa.me/59895621971"
+                target="_blank"
+                rel="noopener noreferrer"
+                >+598 95 621 971</a
+              >
+            </li>
+            <li>
+              <span class="icon-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M3 5.75A2.75 2.75 0 0 1 5.75 3h12.5A2.75 2.75 0 0 1 21 5.75v12.5A2.75 2.75 0 0 1 18.25 21H5.75A2.75 2.75 0 0 1 3 18.25V5.75zm2 0v.29l7 4.77 7-4.77v-.29a.75.75 0 0 0-.75-.75H5.75a.75.75 0 0 0-.75.75zm16 2.7-6.44 4.39a4.5 4.5 0 0 1-5.12 0L3 8.45v9.8c0 .41.34.75.75.75h14.5c.41 0 .75-.34.75-.75v-9.8z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <a href="mailto:ventas@chocara.com">ventas@chocara.com</a>
+            </li>
+            <li>
+              <span class="icon-logo icon-logo--instagram" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm5.2-2.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <a
+                href="https://instagram.com/chocara.saboresqueunen"
+                target="_blank"
+                rel="noopener noreferrer"
+                >@chocara.saboresqueunen</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__layout">
+        <div class="footer__brand">
+          <img
+            src="assets/logo.png"
+            alt="Logo de ChocAra en el pie de página"
+            loading="lazy"
+            class="footer__logo"
+          />
+          <p>Sabores Que Unen</p>
+        </div>
+
+        <ul class="footer__nav">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#local">Local</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <p class="footer__copy">© 2025 ChocAra. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/59895621971"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+        <path
+          d="M19.1 4.9A9.84 9.84 0 0 0 12.06 2C6.57 2 2.1 6.47 2.1 11.97c0 1.76.46 3.48 1.34 5L2 22l5.18-1.36a9.93 9.93 0 0 0 4.88 1.25h.01c5.49 0 9.96-4.47 9.96-9.96 0-2.66-1.03-5.16-2.93-7.03zM12.07 20.2h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.08.81.82-3-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.82 2.42a8.17 8.17 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24zm4.52-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.12-.16.25-.64.81-.78.97-.14.16-.28.19-.53.07-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.23-1.45-1.37-1.69-.14-.25-.02-.38.1-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.44-.07-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.09 3.62.57.24 1.02.39 1.37.5.58.18 1.11.16 1.53.1.46-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.29z"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </a>
+  </body>
+</html>
