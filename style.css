@@ -10,6 +10,13 @@
   --color-sage: #cdd9c9;
   --color-forest: #3f6253;
 
+  --surface-base: #f4eee4;
+  --surface-alt: #efe6d8;
+  --surface-accent: #f8f0e2;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-bg-soft: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(103, 67, 54, 0.18);
+
   --radius-sm: 0.5rem;
   --radius-md: 0.9rem;
   --radius-lg: 1.4rem;
@@ -32,9 +39,9 @@ body {
   color: var(--color-secondary);
   cursor: url("assets/chocara-pointer.png") 8 8, auto;
   background:
-    radial-gradient(circle at 0 0, rgba(251, 207, 194, 0.4), transparent 40%),
-    radial-gradient(circle at 100% 20%, rgba(196, 227, 240, 0.5), transparent 38%),
-    var(--color-cream);
+    radial-gradient(circle at 6% 0%, rgba(226, 190, 124, 0.2), transparent 36%),
+    radial-gradient(circle at 94% 14%, rgba(196, 227, 240, 0.24), transparent 34%),
+    var(--surface-base);
 }
 
 img {
@@ -78,6 +85,7 @@ p {
 
 .section {
   padding: 4rem 1rem;
+  background: var(--surface-base);
 }
 
 .container {
@@ -363,7 +371,7 @@ p {
 
 .section--quick-facts {
   padding: 1.5rem 1rem 0;
-  background: linear-gradient(180deg, #f6ede3 0%, #f8f2ea 100%);
+  background: var(--surface-alt);
 }
 
 .quick-facts {
@@ -372,8 +380,8 @@ p {
 }
 
 .quick-facts__item {
-  background: #fff;
-  border: 1px solid rgba(103, 67, 54, 0.22);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 0.95rem 1rem;
   box-shadow: 0 10px 24px rgba(72, 40, 24, 0.07);
@@ -402,7 +410,7 @@ p {
 }
 
 .section--platforms {
-  background: linear-gradient(160deg, rgba(196, 227, 240, 0.25), rgba(205, 217, 201, 0.4));
+  background: var(--surface-base);
 }
 
 .platforms-grid,
@@ -412,8 +420,8 @@ p {
 }
 
 .platform-card {
-  background: rgba(240, 232, 218, 0.85);
-  border: 1px solid rgba(103, 67, 54, 0.2);
+  background: var(--card-bg-soft);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   padding: 1.2rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -451,10 +459,10 @@ p {
    ========================================================= */
 .product-card {
   position: relative;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(103, 67, 54, 0.16);
+  border: 1px solid var(--card-border);
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   animation: float 4s ease-in-out infinite;
@@ -523,7 +531,7 @@ p {
 }
 
 .section--space {
-  background: rgba(205, 217, 201, 0.35);
+  background: var(--surface-alt);
 }
 
 .space-grid {
@@ -540,7 +548,7 @@ p {
 }
 
 .section--awards {
-  background: linear-gradient(160deg, rgba(226, 190, 124, 0.18), rgba(160, 133, 82, 0.12));
+  background: linear-gradient(165deg, var(--surface-accent), rgba(226, 190, 124, 0.2));
 }
 
 .awards-intro {
@@ -561,10 +569,10 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 1.2rem;
-  border: 1px solid rgba(160, 133, 82, 0.25);
+  border: 1px solid rgba(160, 133, 82, 0.28);
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
@@ -724,7 +732,7 @@ p {
 }
 
 .section--about {
-  background: rgba(251, 207, 194, 0.2);
+  background: var(--surface-base);
 }
 
 .section--about h3 {
@@ -733,7 +741,7 @@ p {
 }
 
 .section--location {
-  background: rgba(196, 227, 240, 0.2);
+  background: var(--surface-alt);
 }
 
 .location-layout {
@@ -754,8 +762,8 @@ p {
 }
 
 .location-info {
-  background: rgba(240, 232, 218, 0.9);
-  border: 1px solid rgba(103, 67, 54, 0.15);
+  background: var(--card-bg-soft);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   padding: 1rem;
 }
@@ -782,7 +790,7 @@ p {
 }
 
 .section--payments {
-  background: linear-gradient(165deg, rgba(251, 207, 194, 0.28), rgba(196, 227, 240, 0.2));
+  background: linear-gradient(165deg, var(--surface-accent), rgba(251, 207, 194, 0.22));
 }
 
 .payments-grid {
@@ -791,8 +799,8 @@ p {
 }
 
 .payments-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(103, 67, 54, 0.18);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   padding: 1.2rem;
   box-shadow: var(--shadow-soft);
