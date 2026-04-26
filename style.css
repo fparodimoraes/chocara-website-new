@@ -109,6 +109,31 @@ p {
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background: var(--color-secondary);
+  color: var(--color-cream);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 /* =========================================================
    EFFECT 2 — Navbar scroll shrink
    ========================================================= */
@@ -163,7 +188,20 @@ p {
   width: 18px;
   height: 2px;
   background: var(--color-secondary);
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-toggle--open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle--open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .nav-links {
@@ -243,6 +281,35 @@ p {
   color: var(--color-secondary);
   border-bottom: 1px solid rgba(80, 40, 25, 0.2);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.promo-strip__pause {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 0.6rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(80, 40, 25, 0.12);
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 1;
+}
+
+.promo-strip__pause:hover,
+.promo-strip__pause:focus-visible {
+  background: rgba(80, 40, 25, 0.25);
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.promo-strip--paused .promo-strip__pause svg rect:first-child {
+  /* swap to a play icon via clip-path trick — handled with SVG swap in JS */
 }
 
 .promo-strip p {
@@ -253,6 +320,11 @@ p {
   white-space: nowrap;
   display: inline-block;
   animation: marquee 28s linear infinite;
+  flex: 1;
+}
+
+.promo-strip--paused p {
+  animation-play-state: paused;
 }
 
 .promo-strip p:hover {
@@ -387,7 +459,7 @@ p {
   box-shadow: 0 10px 24px rgba(72, 40, 24, 0.07);
 }
 
-.quick-facts__item h2 {
+.quick-facts__item h3 {
   margin: 0;
   font-size: 0.96rem;
   color: var(--color-primary-dark);
@@ -955,7 +1027,7 @@ p {
    ========================================================= */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50%      { transform: translateY(-12px); }
+  50%      { transform: translateY(-5px); }
 }
 
 .whatsapp-float:hover,
@@ -1094,5 +1166,19 @@ p {
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 1rem;
+  }
+}
+
+/* =========================================================
+   Accessibility — respect user motion preferences
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

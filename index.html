@@ -75,6 +75,7 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <a href="#como-pedir" class="skip-link">Saltar al contenido principal</a>
     <header class="header" id="inicio">
       <nav class="navbar" aria-label="Navegación principal">
         <a href="#inicio" class="brand" aria-label="Ir al inicio">
@@ -107,6 +108,12 @@
       </nav>
 
       <div class="promo-strip" role="status" aria-label="Novedades de ChocAra">
+        <button class="promo-strip__pause" aria-label="Pausar mensaje" aria-pressed="false">
+          <svg viewBox="0 0 10 12" width="10" height="12" aria-hidden="true" focusable="false">
+            <rect x="0" y="0" width="3" height="12" rx="1" fill="currentColor"/>
+            <rect x="7" y="0" width="3" height="12" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
         <p>
           <span class="promo-strip__label">Novedad:</span>
           <span class="promo-strip__message">Menú semanal disponible para retiro y viandas.</span>
@@ -114,6 +121,7 @@
             href="https://instagram.com/chocara.saboresqueunen"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Ver detalle del menú semanal en Instagram"
             >Ver detalle</a
           >
         </p>
@@ -123,7 +131,8 @@
         <img
           src="assets/hero.jpg"
           alt="Vista principal del restaurante ChocAra"
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
           class="hero__image"
         />
         <div class="hero__overlay"></div>
@@ -162,15 +171,15 @@
         <div class="container">
           <div class="quick-facts reveal-group">
             <article class="quick-facts__item">
-              <h2>Dirección</h2>
+              <h3>Dirección</h3>
               <p>20 de Setiembre 1520, Montevideo</p>
             </article>
             <article class="quick-facts__item">
-              <h2>Horarios</h2>
+              <h3>Horarios</h3>
               <p>Lun-Vie 7:30-20:00 · Sáb 11:00-20:00</p>
             </article>
             <article class="quick-facts__item">
-              <h2>Contacto Directo</h2>
+              <h3>Contacto Directo</h3>
               <p><a href="https://wa.me/59895621971" target="_blank" rel="noopener noreferrer">WhatsApp +598 95 621 971</a></p>
             </article>
           </div>
@@ -454,9 +463,10 @@
             <div class="map-wrapper">
               <iframe
                 title="Ubicación de ChocAra en Montevideo"
-                src="https://www.google.com/maps?q=20%20de%20Setiembre%201520%2C%2011600%2C%20Montevideo%2C%20Uruguay&output=embed"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCIdn6suLql2BtpFhsy00SnC2HNx71aDjU&q=20+de+Setiembre+1520,+Montevideo,+Uruguay&language=es&region=UY"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
               ></iframe>
             </div>
             <div class="location-info">

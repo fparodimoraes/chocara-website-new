@@ -18,7 +18,7 @@ if (typeof Lenis !== 'undefined') {
 
 // ── Parallax hero effect ───────────────────────────────────
 const heroImage = document.querySelector('.hero__image');
-if (heroImage) {
+if (heroImage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const parallaxOffset = scrollY * 0.4;
@@ -35,6 +35,7 @@ const navLinkItems = navLinksContainer ? navLinksContainer.querySelectorAll('a')
 if (menuToggle && navbar) {
   menuToggle.addEventListener('click', () => {
     const isOpen = navbar.classList.toggle('nav-open');
+    menuToggle.classList.toggle('menu-toggle--open', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 }
@@ -43,6 +44,7 @@ navLinkItems.forEach((link) => {
   link.addEventListener('click', () => {
     if (window.innerWidth < 768 && navbar && menuToggle) {
       navbar.classList.remove('nav-open');
+      menuToggle.classList.remove('menu-toggle--open');
       menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
@@ -51,9 +53,25 @@ navLinkItems.forEach((link) => {
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 768 && navbar && menuToggle) {
     navbar.classList.remove('nav-open');
+    menuToggle.classList.remove('menu-toggle--open');
     menuToggle.setAttribute('aria-expanded', 'false');
   }
 });
+
+// ── Promo strip pause button ────────────────────────────────
+const promoStrip = document.querySelector('.promo-strip');
+const promoPause = document.querySelector('.promo-strip__pause');
+const pauseIconSVG = `<svg viewBox="0 0 10 12" width="10" height="12" aria-hidden="true" focusable="false"><rect x="0" y="0" width="3" height="12" rx="1" fill="currentColor"/><rect x="7" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg>`;
+const playIconSVG = `<svg viewBox="0 0 10 12" width="10" height="12" aria-hidden="true" focusable="false"><polygon points="0,0 10,6 0,12" fill="currentColor"/></svg>`;
+
+if (promoPause && promoStrip) {
+  promoPause.addEventListener('click', () => {
+    const isPaused = promoStrip.classList.toggle('promo-strip--paused');
+    promoPause.setAttribute('aria-pressed', String(isPaused));
+    promoPause.setAttribute('aria-label', isPaused ? 'Reanudar mensaje' : 'Pausar mensaje');
+    promoPause.innerHTML = isPaused ? playIconSVG : pauseIconSVG;
+  });
+}
 
 // ── Effect 2: Navbar scroll shrink + dynamic strip offset ──
 function syncNavbarState() {
@@ -96,3 +114,9 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 
 sections.forEach((s) => sectionObserver.observe(s));
+
+// ── Dynamic footer year ─────────────────────────────────────
+const footerCopy = document.querySelector('.footer__copy');
+if (footerCopy) {
+  footerCopy.textContent = `© ${new Date().getFullYear()} ChocAra. Todos los derechos reservados.`;
+}
