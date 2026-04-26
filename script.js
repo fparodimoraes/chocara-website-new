@@ -55,11 +55,17 @@ window.addEventListener('resize', () => {
   }
 });
 
-// ── Effect 2: Navbar scroll shrink ─────────────────────────
-window.addEventListener('scroll', () => {
+// ── Effect 2: Navbar scroll shrink + dynamic strip offset ──
+function syncNavbarState() {
   if (!navbar) return;
   navbar.classList.toggle('navbar--scrolled', window.scrollY > 60);
-}, { passive: true });
+  const navbarHeight = Math.round(navbar.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+}
+
+window.addEventListener('scroll', syncNavbarState, { passive: true });
+window.addEventListener('resize', syncNavbarState, { passive: true });
+syncNavbarState();
 
 // ── Effect 1: Scroll-reveal (Intersection Observer) ─────────
 const revealObserver = new IntersectionObserver((entries) => {

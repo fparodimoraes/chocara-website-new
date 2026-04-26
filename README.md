@@ -10,12 +10,15 @@ chocara-website/
 ├── style.css
 ├── script.js
 └── assets/
-    ├── logo.png
+   ├── logo-name-only.png
+   ├── logo-leaves-only.png
+   ├── chocara-pointer.png
     ├── hero.jpg
     ├── products/
     │   ├── alfajores.jpg
     │   ├── postres.jpg
-    │   └── almuerzo.jpg
+   │   ├── almuerzo.jpg
+   │   └── congelados.jpg
     └── space/
         ├── espacio1.jpg
         ├── espacio2.jpg
@@ -30,7 +33,9 @@ chocara-website/
    - `hero.jpg`: mínimo 1920x1080.
    - `products/*.jpg`: alrededor de 1200x800.
    - `space/*.jpg`: alrededor de 1400x1000.
-   - `logo.png`: mínimo 512x512, fondo transparente.
+   - `logo-name-only.png`: alrededor de 760x200, fondo transparente.
+   - `logo-leaves-only.png`: alrededor de 128x128 para favicon.
+   - `chocara-pointer.png`: 32x32 para cursor personalizado.
 
 ## Vista previa local
 
