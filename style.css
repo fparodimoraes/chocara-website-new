@@ -934,9 +934,10 @@ p {
 }
 
 .footer {
-  background: var(--color-secondary);
-  color: var(--color-cream);
+  background: var(--color-primary);
+  color: var(--color-secondary);
   padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(103, 67, 54, 0.15);
 }
 
 .footer__layout {
@@ -957,9 +958,6 @@ p {
 }
 
 .footer__logo--name {
-  background: #fff;
-  border-radius: 0.55rem;
-  padding: 0.2rem 0.45rem;
 }
 
 .footer__brand p {
@@ -982,7 +980,7 @@ p {
 
 .footer__copy {
   margin: 0;
-  color: rgba(240, 232, 218, 0.84);
+  color: rgba(80, 40, 25, 0.65);
 }
 
 /* =========================================================
