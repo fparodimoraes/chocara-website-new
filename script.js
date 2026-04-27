@@ -176,3 +176,46 @@ document.querySelectorAll('.product-card-new').forEach((card) => {
     }, { passive: true });
   }
 });
+
+// ── Image lightbox ───────────────────────────────────────────
+(function () {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox?.querySelector('.lightbox__img');
+  const closeBtn = lightbox?.querySelector('.lightbox__close');
+
+  if (!lightbox || !lightboxImg) return;
+
+  function openLightbox(img) {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => lightbox.classList.add('lightbox--visible'));
+    document.body.style.overflow = 'hidden';
+    history.pushState({ lightbox: true }, '');
+    closeBtn?.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('lightbox--visible');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.carousel__track img').forEach((img) => {
+    img.addEventListener('click', () => openLightbox(img));
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('lightbox--visible')) closeLightbox();
+  });
+
+  window.addEventListener('popstate', () => {
+    if (lightbox.classList.contains('lightbox--visible')) closeLightbox();
+  });
+}());

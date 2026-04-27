@@ -1244,8 +1244,14 @@ p {
    ========================================================= */
 .products-grid-new {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .products-grid-new {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .product-card-new {
@@ -1289,6 +1295,7 @@ p {
 
 .carousel__track img {
   object-fit: cover;
+  cursor: zoom-in;
 }
 
 .carousel__placeholder {
@@ -1359,6 +1366,61 @@ p {
 .carousel__dot--active {
   background: #fff;
   transform: scale(1.25);
+}
+
+/* ── Lightbox ─────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox__img {
+  max-width: min(92vw, 900px);
+  max-height: 90dvh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  cursor: default;
+  display: block;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease;
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
 }
 
 /* ── Card body ─────────────────────────────────────────────── */
