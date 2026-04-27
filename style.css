@@ -70,7 +70,8 @@ button,
 .platform-card,
 .product-card,
 .award-card,
-.whatsapp-float {
+.whatsapp-float,
+.instagram-float {
   cursor: pointer;
 }
 
@@ -451,7 +452,7 @@ p {
 }
 
 .section--quick-facts {
-  padding: 1.5rem 1rem 0;
+  padding: 1.5rem 1rem 0.85rem;
   background: var(--surface-alt);
 }
 
@@ -1008,9 +1009,10 @@ p {
 }
 
 .footer {
+  margin-top: 0;
   background: var(--color-primary);
   color: var(--color-secondary);
-  padding: 2.5rem 1rem;
+  padding: 2.6rem 1rem 2.5rem;
   border-top: 1px solid rgba(103, 67, 54, 0.15);
 }
 
@@ -1078,6 +1080,33 @@ p {
   transition: transform 0.2s ease;
 }
 
+.instagram-float {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #c13584;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-strong);
+  z-index: 40;
+  transition: transform 0.2s ease;
+}
+
+.instagram-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #c13584;
+  opacity: 0.45;
+  animation: waPulse 2.2s ease-out infinite;
+  z-index: -1;
+}
+
 .whatsapp-float::before {
   content: '';
   position: absolute;
@@ -1104,11 +1133,14 @@ p {
 }
 
 .whatsapp-float:hover,
-.whatsapp-float:focus-visible {
+.whatsapp-float:focus-visible,
+.instagram-float:hover,
+.instagram-float:focus-visible {
   transform: translateY(-3px) scale(1.03);
 }
 
-.whatsapp-float svg {
+.whatsapp-float svg,
+.instagram-float svg {
   width: 30px;
   height: 30px;
 }
@@ -1199,7 +1231,7 @@ p {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 2.8rem;
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1227,8 +1259,8 @@ p {
 }
 
 .dietary-badge__icon {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.95rem;
+  height: 1.95rem;
   object-fit: contain;
   flex-shrink: 0;
   background: var(--color-gold);
