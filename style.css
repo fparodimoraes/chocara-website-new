@@ -22,6 +22,9 @@
   --radius-lg: 1.4rem;
   --shadow-soft: 0 10px 28px rgba(80, 40, 25, 0.14);
   --shadow-strong: 0 20px 50px rgba(0, 0, 3, 0.3);
+  --navbar-height: 69px;
+  --promo-height: 42px;
+  --anchor-offset: calc(var(--navbar-height) + var(--promo-height) + 12px);
 }
 
 * {
@@ -30,6 +33,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
+}
+
+section[id],
+header[id] {
+  scroll-margin-top: var(--anchor-offset);
 }
 
 body {
@@ -1098,6 +1107,267 @@ p {
   transform: none;
 }
 
+/* =========================================================
+   Dietary badges — hero + 2×2 grid
+   ========================================================= */
+.dietary-hero {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--surface-accent);
+  color: var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: 0.95rem 1rem;
+  max-width: 540px;
+  margin: 0 auto 1.4rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(80, 40, 25, 0.16);
+  border-left: 6px solid var(--color-gold);
+}
+
+.dietary-hero__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: var(--color-dark);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.dietary-hero__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.dietary-hero__icon img {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+}
+
+.dietary-hero__title {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-secondary);
+}
+
+.dietary-hero__tagline {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+  color: var(--color-brown);
+  opacity: 0.9;
+}
+
+.dietary-subtitle {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-brown);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.dietary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.8rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dietary-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  background: var(--surface-accent);
+  border: 1px solid rgba(80, 40, 25, 0.16);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.3rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--color-secondary);
+  text-align: left;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.2s ease;
+}
+
+.dietary-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(80, 40, 25, 0.12);
+}
+
+.dietary-badge__icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: var(--color-gold);
+  border-radius: 50%;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   Product category cards — new grid with carousels
+   ========================================================= */
+.products-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.product-card-new {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-new:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(80, 40, 25, 0.2);
+}
+
+/* ── Carousel ──────────────────────────────────────────────── */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--surface-alt);
+  flex-shrink: 0;
+}
+
+.carousel__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.carousel__track img,
+.carousel__track .carousel__placeholder {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel__track img {
+  object-fit: cover;
+}
+
+.carousel__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-brown);
+  background: var(--surface-alt);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.87);
+  color: var(--color-secondary);
+  border: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(80, 40, 25, 0.2);
+  transition: background 0.18s ease;
+  z-index: 2;
+  padding: 0;
+  line-height: 1;
+}
+
+.carousel__btn:hover,
+.carousel__btn:focus-visible {
+  background: rgba(255, 255, 255, 1);
+}
+
+.carousel__btn--prev {
+  left: 0.45rem;
+}
+
+.carousel__btn--next {
+  right: 0.45rem;
+}
+
+.carousel__dots {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.38rem;
+  z-index: 2;
+}
+
+.carousel__dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.carousel__dot--active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+/* ── Card body ─────────────────────────────────────────────── */
+.product-card-new__body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card-new__body h3 {
+  margin: 0 0 0.28rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: var(--color-secondary);
+}
+
+.product-card-new__body p {
+  font-size: 0.84rem;
+  color: var(--color-brown);
+  margin: 0 0 0.85rem;
+  flex: 1;
+}
+
+.product-card-new__body .btn {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.95rem;
+}
+
 /* stagger children inside a reveal container */
 .reveal-group > * {
   opacity: 0;
@@ -1188,6 +1458,15 @@ p {
 
   .products-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .products-grid-new {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .dietary-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .space-grid {

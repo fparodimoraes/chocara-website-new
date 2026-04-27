@@ -78,7 +78,12 @@ function syncNavbarState() {
   if (!navbar) return;
   navbar.classList.toggle('navbar--scrolled', window.scrollY > 60);
   const navbarHeight = Math.round(navbar.getBoundingClientRect().height);
+  const promoHeight = promoStrip
+    ? Math.round(promoStrip.getBoundingClientRect().height)
+    : 0;
   document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+  document.documentElement.style.setProperty('--promo-height', `${promoHeight}px`);
+  document.documentElement.style.setProperty('--anchor-offset', `${navbarHeight + promoHeight + 12}px`);
 }
 
 window.addEventListener('scroll', syncNavbarState, { passive: true });
@@ -120,3 +125,54 @@ const footerCopy = document.querySelector('.footer__copy');
 if (footerCopy) {
   footerCopy.textContent = `© ${new Date().getFullYear()} ChocAra. Todos los derechos reservados.`;
 }
+
+// ── Product category carousels ──────────────────────────────
+document.querySelectorAll('.product-card-new').forEach((card) => {
+  const carousel = card.querySelector('.carousel');
+  const track = card.querySelector('.carousel__track');
+  const dots = card.querySelectorAll('.carousel__dot');
+  const prevBtn = card.querySelector('.carousel__btn--prev');
+  const nextBtn = card.querySelector('.carousel__btn--next');
+
+  if (!track) return;
+
+  // Replace broken images with a styled placeholder
+  track.querySelectorAll('img').forEach((img) => {
+    img.addEventListener('error', () => {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'carousel__placeholder';
+      placeholder.textContent = img.closest('.product-card-new')
+        ?.querySelector('h3')?.textContent ?? '';
+      img.replaceWith(placeholder);
+    });
+  });
+
+  const totalSlides = track.children.length;
+  let current = 0;
+
+  function goTo(index) {
+    current = ((index % totalSlides) + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) =>
+      dot.classList.toggle('carousel__dot--active', i === current)
+    );
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  // Touch / swipe support
+  if (carousel) {
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      const delta = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(delta) > 40) {
+        goTo(delta > 0 ? current + 1 : current - 1);
+      }
+    }, { passive: true });
+  }
+});
